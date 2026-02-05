@@ -197,7 +197,7 @@
       font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--text);
       margin-bottom: 32px;
     }
 
@@ -213,7 +213,7 @@
     }
 
     .hero-title .accent {
-      color: var(--accent);
+      color: var(--text);
     }
 
     .hero-subtitle {
@@ -255,25 +255,6 @@
       transform: translateX(4px);
     }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 48px;
-      left: 64px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--text-light);
-    }
-
-    .hero-scroll .line {
-      width: 48px;
-      height: 1px;
-      background: var(--accent);
-    }
 
     /* Sections */
     section {
@@ -322,13 +303,17 @@
       gap: 24px;
     }
 
+    /* Service Cards - Glassmorphism */
     .service-card {
-      background: var(--base);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       padding: 48px 40px;
-      border-radius: 24px;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 32px;
       position: relative;
       overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .service-card::before {
@@ -337,37 +322,53 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: transform 0.4s;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 30%, rgba(147, 174, 184, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+      transition: opacity 0.4s;
+      opacity: 0;
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.85);
     }
 
-    .service-card:hover::before {
-      transform: scaleX(1);
+    .service-card:hover::after {
+      opacity: 1;
     }
 
     .service-card.featured {
-      background: var(--text);
+      background: linear-gradient(135deg, var(--text) 0%, #1a2628 100%);
+      border: 1px solid rgba(147, 174, 184, 0.3);
       color: var(--base);
     }
 
     .service-card.featured::before {
-      background: var(--accent);
-      transform: scaleX(1);
+      background: linear-gradient(135deg, rgba(147, 174, 184, 0.2) 0%, transparent 50%);
     }
 
     .service-number {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 1px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
       color: var(--accent);
       margin-bottom: 32px;
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(147, 174, 184, 0.15);
+      border-radius: 100px;
     }
 
     .service-card.featured .service-number {
@@ -376,9 +377,9 @@
 
     .service-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 400;
-      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 16px;
     }
 
     .service-card p {
@@ -674,10 +675,6 @@
         /* Reset padding since background is gone */
       }
 
-      .hero-scroll {
-        display: none;
-      }
-
       section {
         padding-top: 100px;
         padding-bottom: 100px;
@@ -775,10 +772,6 @@
         </svg>
       </a>
     </div>
-    <div class="hero-scroll">
-      <span class="line"></span>
-      <span data-fr="Défiler" data-en="Scroll">Défiler</span>
-    </div>
   </section>
 
   <!-- Services -->
@@ -788,9 +781,8 @@
       <h2 class="section-title reveal reveal-delay-1" data-fr="Des solutions qui évoluent avec votre ambition."
         data-en="Solutions that scale with your ambition.">Des solutions qui évoluent avec votre ambition.</h2>
       <p class="section-subtitle reveal reveal-delay-2"
-        data-fr="Chaque projet est unique. Choisissez le niveau d'accompagnement qui correspond à vos besoins."
-        data-en="Every project is unique. Choose the level of support that fits your needs.">Chaque projet est unique.
-        Choisissez le niveau d'accompagnement qui correspond à vos besoins.</p>
+        data-fr="Chaque projet est unique. Choisissez l'accompagnement qui correspond à vos besoins."
+        data-en="Every project is unique. Choose the support that fits your needs.">Chaque projet est unique. Choisissez l'accompagnement qui correspond à vos besoins.</p>
     </div>
 
     <div class="services-grid">
