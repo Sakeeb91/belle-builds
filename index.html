@@ -391,6 +391,25 @@
       color: rgba(255, 255, 255, 0.7);
     }
 
+    .service-image {
+      width: 100%;
+      height: 180px;
+      margin-bottom: 24px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.05);
+    }
+
     /* Work / Portfolio */
     .work {
       background: var(--base);
@@ -785,6 +804,9 @@
 
     <div class="services-grid">
       <div class="service-card reveal">
+        <div class="service-image">
+          <img src="images/brand identity.png" alt="Brand Identity">
+        </div>
         <p class="service-number">01</p>
         <h3 data-fr="Identité de marque" data-en="Brand Identity">Identité de marque</h3>
         <p data-fr="Logo, palette de couleurs, typographie et guide de marque complet. Les fondations visuelles dont vous avez besoin pour être pris au sérieux."
@@ -793,6 +815,9 @@
           besoin pour être pris au sérieux.</p>
       </div>
       <div class="service-card featured reveal reveal-delay-1">
+        <div class="service-image">
+          <img src="images/brand web.png" alt="Brand + Web">
+        </div>
         <p class="service-number">02</p>
         <h3 data-fr="Marque + Web" data-en="Brand + Web">Marque + Web</h3>
         <p data-fr="Tout ce qui est inclus dans l'identité de marque, plus un site web conçu pour convertir les visiteurs en clients."
@@ -800,6 +825,9 @@
           est inclus dans l'identité de marque, plus un site web conçu pour convertir les visiteurs en clients.</p>
       </div>
       <div class="service-card reveal reveal-delay-2">
+        <div class="service-image">
+          <img src="images/full system.png" alt="Full System">
+        </div>
         <p class="service-number">03</p>
         <h3 data-fr="Système complet" data-en="Full System">Système complet</h3>
         <p data-fr="Identité visuelle complète avec tous les éléments pour votre présence digitale et physique. Prêt à conquérir le marché."
