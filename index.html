@@ -174,8 +174,16 @@
     }
 
     .hero::after {
-      /* Removed white overlay */
-      display: none;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      /* 30% black overlay */
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-content {
@@ -661,6 +669,11 @@
         padding-top: 120px;
       }
 
+      .hero-content {
+        padding: 0;
+        /* Reset padding since background is gone */
+      }
+
       .hero-scroll {
         display: none;
       }
@@ -908,13 +921,14 @@
   <script>
     // Navigation scroll effect
     const navbar = document.getElementById('navbar');
-    const heroSection = document.querySelector('.hero');
+    const heroSection = document.querySelector('.hero'); // This variable is no longer used after the change.
+    const nav = document.getElementById('navbar'); // Added to define 'nav' as per instruction
 
     window.addEventListener('scroll', () => {
-      if (heroSection && window.scrollY > (heroSection.offsetHeight - 80)) { // 80px buffer for smooth transition
-        navbar.classList.add('scrolled');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
       } else {
-        navbar.classList.remove('scrolled');
+        nav.classList.remove('scrolled');
       }
     });
 
