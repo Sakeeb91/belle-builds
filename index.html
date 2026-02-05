@@ -74,7 +74,9 @@
       font-family: 'Playfair Display', serif;
       font-size: 22px;
       font-weight: 500;
-      color: var(--text);
+      color: var(--base);
+      /* Default white on hero */
+      transition: color 0.3s;
     }
 
     .nav-right {
@@ -91,7 +93,8 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--text);
+      color: var(--base);
+      /* Default white on hero */
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.5px;
@@ -101,6 +104,19 @@
 
     .nav-links a:hover {
       color: var(--accent);
+    }
+
+    /* Navbar Scrolled State Colors */
+    nav.scrolled .nav-links a {
+      color: var(--text);
+    }
+
+    nav.scrolled .nav-logo span {
+      color: var(--text);
+    }
+
+    nav.scrolled .lang-toggle button {
+      color: var(--text);
     }
 
     .lang-toggle {
@@ -113,11 +129,12 @@
     .lang-toggle button {
       background: none;
       border: none;
-      color: var(--text);
+      color: var(--base);
+      /* Default white on hero */
       cursor: pointer;
       opacity: 0.4;
       font-weight: 500;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, color 0.3s;
       text-transform: uppercase;
     }
 
@@ -157,16 +174,8 @@
     }
 
     .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(254, 254, 254, 0.5);
-      /* Semi-transparent white overlay */
-      pointer-events: none;
-      z-index: 0;
+      /* Removed white overlay */
+      display: none;
     }
 
     .hero-content {
@@ -191,6 +200,8 @@
       line-height: 1.1;
       margin-bottom: 40px;
       letter-spacing: -1px;
+      color: var(--base);
+      /* White text */
     }
 
     .hero-title .accent {
@@ -200,7 +211,8 @@
     .hero-subtitle {
       font-size: 20px;
       font-weight: 300;
-      color: var(--text-light);
+      color: rgba(255, 255, 255, 0.9);
+      /* Lighter subtitle */
       max-width: 560px;
       line-height: 1.7;
       margin-bottom: 56px;
@@ -210,8 +222,8 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: var(--text);
-      color: white;
+      background: var(--base);
+      color: var(--text);
       padding: 20px 40px;
       border-radius: 100px;
       text-decoration: none;
@@ -223,6 +235,7 @@
 
     .hero-cta:hover {
       background: var(--accent);
+      color: white;
       transform: translateX(8px);
     }
 
