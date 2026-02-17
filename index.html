@@ -155,10 +155,20 @@
       padding: 0 64px;
       position: relative;
       overflow: hidden;
-      background-image: url('images/hero-bg.png');
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
+      background-color: #2E3537;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 0;
     }
 
     .hero::before {
@@ -838,6 +848,9 @@
 
   <!-- Hero -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/A_woman_writing_202602171325.mp4" type="video/mp4">
+    </video>
     <div class="hero-content">
       <p class="hero-label reveal" data-fr="Design de marque pour startups" data-en="Brand design for startups">Design
         de marque pour startups</p>
